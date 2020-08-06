@@ -398,6 +398,13 @@
     },
     {
       "files": [
+        "css/protocol/components/send-to-device.scss",
+        "css/firefox/whatsnew/whatsnew-80.scss"
+      ],
+      "name": "firefox_whatsnew_80"
+    },
+    {
+      "files": [
         "css/firefox/privacy/common.scss"
       ],
       "name": "firefox-privacy-common"
