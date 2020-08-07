@@ -7,11 +7,11 @@
 {% add_lang_files "firefox/whatsnew" %}
 {% extends "firefox/whatsnew/base.html" %}
 
-{% block page_title %}Download Firefox for Android and iOS{% endblock %}
+{% block page_title %}{{ ftl('whatsnew80-page-title') }}{% endblock %}
 
 {#- This will appear as <meta property="og:description"> which can be used for social share -#}
 {% block page_og_desc %}
-  What’s new with Firefox
+  {{ ftl('whatsnew80-page-title') }}
 {% endblock %}
 
 {% block body_id %}firefox-whatsnew{% endblock %}
@@ -30,7 +30,7 @@
     <div class="mzp-l-content c-page-header-inner">
       {{ high_res_img('protocol/img/logos/firefox/browser/logo-word-hor-white-sm.png', {'alt': 'Firefox', 'width': '216', 'height': '40', 'class': 'c-page-header-logo-fx'}) }}
       <div class="mzp-c-notification-bar mzp-t-success up-to-date">
-        <p>Congrats! You’re using the latest version of Firefox.</p>
+        <p>{{ ftl('whatsnew80-up-to-date-banner') }}</p>
       </div>
     </div>
   </header>
@@ -39,11 +39,11 @@
     <div class="mzp-l-content t-content-lg mzp-c-emphasis-box">
       <div>
         {{ high_res_img('protocol/img/logos/firefox/browser/logo-sm.png', {'alt': 'Firefox', 'width': '50', 'height': '50', 'class': 'c-emphasis-box-logo'}) }}
-        <h1 class="c-emphasis-box-title">Do just about everything, a little faster</h1>
-        <p class="main-tagline">Move from computer to phone without missing a beat. Get Firefox for mobile.</p>
+        <h1 class="c-emphasis-box-title">{{ ftl('whatsnew80-main-title') }}</h1>
+        <p class="main-tagline">{{ ftl('whatsnew80-main-intro') }}</p>
       </div>
       <div id="send-to-device-wrapper" class="primary-cta">
-        {{ send_to_device(include_title=False, message_set='fx-whatsnew', input_label='Enter your email or phone number for a download link', class='vertical') }}
+        {{ send_to_device(include_title=False, message_set='fx-whatsnew', input_label=ftl('whatsnew80-primary-cta-description'), class='vertical') }}
       </div>
     </div>
   </section>
@@ -56,9 +56,9 @@
           <div class="c-picto-block-image">
             <img src="{{ static('protocol/img/icons/login.svg') }}" width="48px" alt="">
           </div>
-          <h3 class="c-picto-block-title">Password fatigue is real</h3>
+          <h3 class="c-picto-block-title">{{ ftl('whatsnew80-password-fatigue') }}</h3>
           <div class="c-picto-block-body">
-            <p>The average person has 130 online accounts. Firefox for mobile remembers and stores your passwords safely across synced devices, so you can log in with just one click.</p>
+            <p>{{ ftl('whatsnew80-the-average-person') }}</p>
           </div>
         </div>
 
@@ -66,9 +66,9 @@
           <div class="c-picto-block-image">
             <img src="{{ static('protocol/img/icons/popup-block.svg') }}" width="48px" alt="">
           </div>
-          <h3 class="c-picto-block-title">Privacy you never have to ponder</h3>
+          <h3 class="c-picto-block-title">{{ ftl('whatsnew80-privacy-you-never') }}</h3>
           <div class="c-picto-block-body">
-            <p>Firefox for mobile blocks most online ad trackers automatically so there’s no need to dig into your security settings.</p>
+            <p>{{ ftl('whatsnew80-firefox-for-mobile') }}</p>
           </div>
         </div>
 
@@ -76,9 +76,9 @@
           <div class="c-picto-block-image">
             <img src="{{ static('protocol/img/icons/mobile.svg') }}" width="48px" alt="">
           </div>
-          <h3 class="c-picto-block-title">New Firefox for Android </h3>
+          <h3 class="c-picto-block-title">{{ ftl('whatsnew80-new-firefox-android') }}</h3>
           <div class="c-picto-block-body">
-            <p>Our latest version of Firefox features lighting-fast page loads and a clean new design that makes it easier to get more things done, more quickly.</p>
+            <p>{{ ftl('whatsnew80-our-latest-version') }}</p>
           </div>
         </div>
 
