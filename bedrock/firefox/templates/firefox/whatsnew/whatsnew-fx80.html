@@ -38,7 +38,7 @@
   <section class="main-content {% if show_send_to_device %} show-send-to-device{% endif %}">
     <div class="mzp-l-content t-content-lg mzp-c-emphasis-box">
       <div>
-        {{ high_res_img('protocol/img/logos/firefox/browser/logo-sm.png', {'alt': 'Firefox', 'width': '50', 'height': '50', 'class': 'c-emphasis-box-logo'}) }}
+        <img class="c-emphasis-box-logo" src="{{ static('img/firefox/whatsnew/whatsnew80/hero-fastsync.svg') }}" width="200" alt="">
         <h1 class="c-emphasis-box-title">{{ ftl('whatsnew80-main-title') }}</h1>
         <p class="main-tagline">{{ ftl('whatsnew80-main-intro') }}</p>
       </div>
@@ -54,7 +54,7 @@
 
         <div class="c-picto-block">
           <div class="c-picto-block-image">
-            <img src="{{ static('protocol/img/icons/login.svg') }}" width="48px" alt="">
+            <img src="{{ static('img/icons/passwords-pink.svg') }}" width="48" alt="">
           </div>
           <h3 class="c-picto-block-title">{{ ftl('whatsnew80-password-fatigue') }}</h3>
           <div class="c-picto-block-body">
@@ -64,7 +64,7 @@
 
         <div class="c-picto-block">
           <div class="c-picto-block-image">
-            <img src="{{ static('protocol/img/icons/popup-block.svg') }}" width="48px" alt="">
+            <img src="{{ static('img/icons/privacy-eye-violet.svg') }}" width="48" alt="">
           </div>
           <h3 class="c-picto-block-title">{{ ftl('whatsnew80-privacy-you-never') }}</h3>
           <div class="c-picto-block-body">
@@ -74,7 +74,7 @@
 
         <div class="c-picto-block">
           <div class="c-picto-block-image">
-            <img src="{{ static('protocol/img/icons/mobile.svg') }}" width="48px" alt="">
+            <img src="{{ static('img/firefox/whatsnew/whatsnew80/icon-fxandroid.png') }}" width="48" alt="">
           </div>
           <h3 class="c-picto-block-title">{{ ftl('whatsnew80-new-firefox-android') }}</h3>
           <div class="c-picto-block-body">

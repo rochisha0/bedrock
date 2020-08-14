@@ -109,6 +109,8 @@ $image-path: '/media/protocol/img';
 
     .c-emphasis-box-title {
         @include text-title-sm;
+        max-width: 20ch;
+        margin: 0 auto .25em;
     }
 
     .c-emphasis-box-tagline {
