@@ -839,6 +839,22 @@
     },
     {
       "files": [
+        "js/firefox/whatsnew/up-to-date.js",
+        "js/libs/spin.min.js",
+        "js/base/send-to-device.js",
+        "js/firefox/whatsnew/whatsnew-80.js"
+      ],
+      "name": "firefox_whatsnew_80"
+    },
+    {
+      "files": [
+        "js/base/mozilla-client.js",
+        "js/firefox/whatsnew/whatsnew-80-redirect.js"
+      ],
+      "name": "firefox_whatsnew_80_redirect"
+    },
+    {
+      "files": [
         "protocol/js/protocol-newsletter.js"
       ],
       "name": "legal"

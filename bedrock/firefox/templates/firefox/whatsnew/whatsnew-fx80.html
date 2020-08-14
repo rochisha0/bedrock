@@ -4,8 +4,16 @@
 
 {% from "macros.html" import send_to_device with context %}
 
-{% add_lang_files "firefox/whatsnew" %}
 {% extends "firefox/whatsnew/base.html" %}
+
+{% block html_attrs %}
+data-whatsnew80-redirect-url="{{ settings.FXA_ENDPOINT + 'sms/'}}"
+{% endblock %}
+
+{% block experiments %}
+  {# Abusing the experiments block so this redirect can happen as soon as possible #}
+  {{ js_bundle('firefox_whatsnew_80_redirect') }}
+{% endblock %}
 
 {% block page_title %}{{ ftl('whatsnew80-page-title') }}{% endblock %}
 
@@ -17,14 +25,15 @@
 {% block body_id %}firefox-whatsnew{% endblock %}
 {% block body_class %}{% endblock %}
 
-{% block site_header %}{% endblock %}
-
 {% block page_css %}
   {{ css_bundle('firefox_whatsnew_80') }}
 {% endblock %}
 
-{% block content %}
+{% block site_header %}{% endblock %}
 
+{% set show_send_to_device = LANG in settings.SEND_TO_DEVICE_LOCALES %}
+
+{% block content %}
 <main class="content-wrapper mzp-t-firefox mzp-t-dark">
   <header class="c-page-header main-header">
     <div class="mzp-l-content c-page-header-inner">
@@ -35,15 +44,25 @@
     </div>
   </header>
 
-  <section class="main-content {% if show_send_to_device %} show-send-to-device{% endif %}">
-    <div class="mzp-l-content t-content-lg mzp-c-emphasis-box">
-      <div>
+  <section class="content-main">
+    <div class="mzp-l-content">
+      <div class="mzp-c-emphasis-box">
         <img class="c-emphasis-box-logo" src="{{ static('img/firefox/whatsnew/whatsnew80/hero-fastsync.svg') }}" width="200" alt="">
         <h1 class="c-emphasis-box-title">{{ ftl('whatsnew80-main-title') }}</h1>
         <p class="main-tagline">{{ ftl('whatsnew80-main-intro') }}</p>
-      </div>
-      <div id="send-to-device-wrapper" class="primary-cta">
+
+      {% if show_send_to_device %}
+        <div id="send-to-device-wrapper" class="primary-cta">
         {{ send_to_device(include_title=False, message_set='fx-whatsnew', input_label_alt=ftl('whatsnew80-primary-cta-description'), class='vertical') }}
+        </div>
+      {% else %}
+        <div class="qr-code-wrapper">
+          <img src="{{ static('img/firefox/mobile/protocol/qr-firefox.png') }}"
+              id="firefox-qr"
+              data-mozillaonline-link="{{ static('img/firefox/mobile/protocol/qr-firefox-mozillaonline.png') }}"
+              alt="">
+        </div>
+      {% endif %}
       </div>
     </div>
   </section>
@@ -86,9 +105,14 @@
     </div>
   </section>
 
+  <aside class="mzp-l-content c-utilities">
+    {% set releasenotes_url = url('firefox.releases.index') if not version else '/firefox/%s/releasenotes/'|format(version) %}
+    <p>{{ ftl('whatsnew-release-notes', url=releasenotes_url) }}</p>
+  </aside>
+
 </main>
 {% endblock %}
 
 {% block js %}
-  {{ js_bundle('firefox_whatsnew') }}
+  {{ js_bundle('firefox_whatsnew_80') }}
 {% endblock %}
